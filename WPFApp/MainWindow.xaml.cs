@@ -8,7 +8,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace WPFApp
 {
     /// <summary>
@@ -20,5 +19,26 @@ namespace WPFApp
         {
             InitializeComponent();
         }
+
+        void CreateTask()
+        {
+            Task T;
+            // ¿Qué es un delegado? Apuntadores a funciones.
+            // EJEMPLO: Action y Func
+            Action Code = new Action(ShowMessage);
+            T = new Task(Code);
+            Task T2 = new Task(delegate
+            {
+                MessageBox.Show("Ejecutando una tarea en un método anónimo.");
+            }
+            );
+
+        }
+
+        void ShowMessage()
+        {
+            MessageBox.Show("Ejecutando el método ShowMessage");
+        }
+
     }
 }
